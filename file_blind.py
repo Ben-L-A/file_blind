@@ -87,7 +87,8 @@ class Blind:
         with open ("key.csv", "r", encoding='latin1') as csvfile:
             reader = csv.reader(csvfile, delimiter=",")
             for line in reader:
-                reverse_data.append([line[1], line[0]])
+                if len(line) > 1:
+                    reverse_data.append([line[1], line[0]])
         self.rename_files(reverse_data)
 
     def run(self):
